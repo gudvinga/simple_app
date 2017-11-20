@@ -1,6 +1,7 @@
-var routes, router, contentEl;
+var routes, router, contentEl, locationEl;
 
 contentEl = document.getElementById('content');
+locationEl = document.getElementById('locationHref');
 
 routes = {
     '/': {
@@ -50,6 +51,7 @@ router = function() {
 
     document.title = curentRoute.title;
     contentEl.innerHTML = curentRoute.content || 'Error 404. Page not found';
+    locationEl.innerHTML = window.location.href;
 }
 
 window.addEventListener('hashchange', router);
